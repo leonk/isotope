@@ -651,6 +651,9 @@
         processor = function( i, obj ) {
           // only animate if it not being inserted
           objStyleFn = obj.$el.hasClass('no-transition') ? 'css' : styleFn;
+          if (typeof callback === 'function') {
+            animOpts.complete = callback;
+          }
           obj.$el[ objStyleFn ]( obj.style, animOpts );
         };
 
